@@ -35,5 +35,17 @@ namespace WelcomeApp.Controllers
             DisplayEmpVM vm = new DisplayEmpVM() { Name="Raj",Salary=15000,DateOfHire="14-April-2017"};
             return View(vm);
         }
+
+        public ActionResult DisplayEmps()
+        {
+            var Employees = new List<DisplayEmpVM>
+            {
+                new DisplayEmpVM { Name="Raj",Salary=20000,DateOfHire="14-April-2017" },
+                new DisplayEmpVM { Name="Akshay",Salary=20000,DateOfHire="14-April-2017" },
+                new DisplayEmpVM { Name="Omkar",Salary=15000,DateOfHire="12-Jan-2019" },
+                new DisplayEmpVM { Name="Prathmesh",Salary=25000,DateOfHire="11-Mar-2016"}
+            };
+            return View(Employees);
+        }
     }
 }
