@@ -47,5 +47,17 @@ namespace WelcomeApp.Controllers
             };
             return View(Employees);
         }
+
+        public ActionResult DisplayEmpJson()
+        {
+            DisplayEmpVM emp = new DisplayEmpVM { Name = "Raj", Salary = 20000, DateOfHire = "14-April-2017" };
+            return Json(emp,JsonRequestBehavior.AllowGet);
+
+        }
+
+        public ActionResult Swabhav()
+        {
+            return Redirect("http://swabhavtechlabs.com");
+        }
     }
 }

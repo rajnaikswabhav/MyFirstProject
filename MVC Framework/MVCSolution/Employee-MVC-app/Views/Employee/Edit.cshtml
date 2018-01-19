@@ -1,0 +1,16 @@
+﻿@model Employee_MVC_app.Models.ViewModel.Employee
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (@Html.BeginForm("Edit", "Employee"))
+{
+    <label>ID :</label> @Html.TextBoxFor(e => e.ID,new { @readonly = "readonly" });<br />
+    <label>Name :</label>@Html.TextBoxFor(e => e.Name);<br />
+    <label>Salary :</label>@Html.TextBoxFor(e => e.Salary);<br />
+    <input type="submit" value="Update" class="btn btn-default"/>
+}
+

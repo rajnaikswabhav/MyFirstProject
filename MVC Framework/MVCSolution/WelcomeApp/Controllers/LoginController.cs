@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WelcomeApp.Models.ViewModel;
 
 namespace WelcomeApp.Controllers
 {
@@ -12,7 +13,23 @@ namespace WelcomeApp.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            return View();
+            LoginVM user = new LoginVM {Username="xyz",Password="xyz",Status="failed" };
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginVM user)
+        {
+            if(user.Username.Equals("admin") && user.Password.Equals("admin"))
+            {
+                user.Status = "Successful";
+                return View(user);
+            }
+            else {
+                user.Status = "Failed";
+                return View(user);
+            }
+            
         }
     }
 }

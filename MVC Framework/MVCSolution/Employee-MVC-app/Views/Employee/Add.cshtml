@@ -1,0 +1,19 @@
+﻿@model Employee_MVC_app.Models.ViewModel.Employee
+
+@{
+    ViewBag.Title = "Add";
+}
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/jquery.validate.min.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+<h2>Add</h2>
+
+@using (@Html.BeginForm("Add", "Employee"))
+{
+    @Html.ValidationSummary(true)
+    <label>Name :</label>@Html.TextBoxFor(e => e.Name);@Html.ValidationMessageFor(e => e.Name);<br />
+    <label>Salary :</label>@Html.TextBoxFor(e => e.Salary);@Html.ValidationMessageFor(e => e.Salary);<br />
+    <input class="btn btn-default" type="submit" value="Add" />
+
+}
+

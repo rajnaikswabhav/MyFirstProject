@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h1>Found @Model.Count Employees</h1>
+
+<input type="button" class="btn btn-default" value="Add Employee" onclick="location.href='@Url.Action("Add", "Employee")'" />
+<input type="button" class="btn btn-default" value="Search Employee" onclick="location.href='@Url.Action("Search", "Employee")'" /><br />
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Employee Name</th>
+                <th>Salary</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.ID</td>
+                    <td>@employee.Name</td>
+                    <td>@employee.Salary</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = employee.ID })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new { id = employee.ID })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

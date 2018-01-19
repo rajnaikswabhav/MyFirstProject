@@ -6,6 +6,14 @@
 
 <h2>Login</h2>
 
+@using (@Html.BeginForm("login", "Login"))
+{
 
-using(@Html.BeginForm()){
+   <label>Username:</label> @Html.TextBoxFor(m => m.Username);<br />
+   <label>Password:</label> @Html.TextBoxFor(m => m.Password);<br />
+
+          <p>@Model.Status</p>
+
+    <input type="submit" value="Login"/>
 }
+
