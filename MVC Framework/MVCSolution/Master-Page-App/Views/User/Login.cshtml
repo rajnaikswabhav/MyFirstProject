@@ -1,0 +1,15 @@
+﻿@model Master_Page_App.Models.ViewModel.UserVM
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (@Html.BeginForm("Login","User", new { returnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.TextBoxFor(Model => Model.Username);@Html.ValidationMessageFor(Model => Model.Username);<br />
+    @Html.TextBoxFor(Model => Model.Password);@Html.ValidationMessageFor(Model => Model.Password);<br />
+    <input type="submit" value="Login" />
+}

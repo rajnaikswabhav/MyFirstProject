@@ -1,5 +1,6 @@
 ﻿using Employee_MVC_app.Models.ViewModel;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -76,5 +77,44 @@ namespace Employee_MVC_app.Controllers
             }
             return View(vm);
         }
+
+        [HttpGet]
+        public ActionResult AjaxSearch()
+        {
+            AJAXSearchVM vm = new AJAXSearchVM();
+            vm.Employees = empService.GetList();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult AjaxSearch(AJAXSearchVM vm)
+        {
+            if (vm.FName == null && vm.Salary == 0)
+            {
+                vm.Employees = empService.GetList();
+            }
+            else
+            {
+                var searchEmployees = empService.AjaxSearch(vm);
+                vm.Employees = searchEmployees;
+            }
+            return View(vm);
+        }
+
+        public PartialViewResult GetUserData(AJAXSearchVM vm)
+        {
+            if (vm.FName == null && vm.Salary == 0)
+            {
+                vm.Employees = empService.GetList();
+            }
+            else
+            {
+                var searchEmployees = empService.AjaxSearch(vm);
+                vm.Employees = searchEmployees;
+            }
+            return PartialView(vm);
+        }
+
+
     }
 }

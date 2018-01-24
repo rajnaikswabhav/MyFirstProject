@@ -134,7 +134,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\SummaryController.cs" />
+    <Compile Include="Models\ViewModel\ApplicationVM.cs" />
+    <Compile Include="Models\ViewModel\SessionVM.cs" />
+    <Compile Include="Models\ViewModel\SummaryVM.cs" />
     <Compile Include="Models\WelcomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -159,6 +165,9 @@
     <Content Include="Views\Welcome\DisplayEmp.cshtml" />
     <Content Include="Views\Welcome\DisplayEmps.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Session\Index.cshtml" />
+    <Content Include="Views\Application\Index.cshtml" />
+    <Content Include="Views\Summary\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

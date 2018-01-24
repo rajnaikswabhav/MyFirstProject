@@ -1,0 +1,34 @@
+﻿@model Employee_MVC_app.Models.ViewModel.AJAXSearchVM
+
+@{
+    ViewBag.Title = "AjaxSearch";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "tableBody"
+    };
+}
+}
+
+<h2>AjaxSearch</h2>
+<table>
+    <thead>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+
+    <tbody id="tableBody">
+        @Html.Action("GetUserData", new { selectedRole = Model })
+    </tbody>
+</table>
+
+@using (Ajax.BeginForm("AjaxSearch", ajaxOpts))
+{
+    <div>
+        <label>Name :</label>@Html.TextBoxFor(Model => Model.FName)<br />
+        <label>Salary :</label>@Html.TextBoxFor(Model => Model.Salary)<br />
+        <button type="submit">Submit</button>
+    </div>
+}

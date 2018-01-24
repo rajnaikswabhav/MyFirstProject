@@ -12,6 +12,12 @@ namespace WelcomeApp
         protected void Application_Start()
         {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Application["counter"] = null;
+        }
+
+        protected void Session_Start()
+        {
+            Session["counter"] = 0;
         }
     }
 }

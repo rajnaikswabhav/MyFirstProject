@@ -52,6 +52,11 @@ namespace Employee_MVC_app.Models.ViewModel
             return empList.Where(e => e.Name.Equals(vm.FName) || e.Salary>vm.Salary).ToList();
         }
 
+        public List<Employee> AjaxSearch(AJAXSearchVM vm)
+        {
+            return empList.Where(e => e.Name.Equals(vm.FName) || e.Salary > vm.Salary).ToList();
+        }
+
 
     }
 }
